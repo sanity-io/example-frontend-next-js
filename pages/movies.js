@@ -1,9 +1,8 @@
 import React from 'react'
+import Link from 'next/link'
 import Layout from '../components/Layout'
 import sanity from '../lib/sanity'
-import Link from 'next/link'
 
-// Fetch 50 documents of type `movie`, and select only the fields we need
 const query = `*[_type == "movie"] {
   _id,
   title,
@@ -22,18 +21,21 @@ export default class Movies extends React.Component {
   }
 
   render() {
+    const {movies} = this.props
     return (
       <Layout>
         <ul>
-          {this.props.movies.map(movie => (
-            <li>
+          {movies.map(movie => (
+            <li key={movie._id}>
               <div>
                 <Link href={{pathname: '/movie', query: {id: movie._id}}}>
                   <a>
-                    <img src={`${movie.posterUrl}?h=240`} />
+                    {movie.posterUrl && <img src={`${movie.posterUrl}?h=240`} />}
                     {movie.title}
-                    {movie.releaseDate}
-                    {movie.director}
+                    {' '}
+                    ({movie.releaseDate.substr(0, 4)})
+                    {' '}
+                    Directed by {movie.director}
                   </a>
                 </Link>
               </div>
