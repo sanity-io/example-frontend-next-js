@@ -1,7 +1,7 @@
 {
-  "name": "sanity-example-frontend-next",
+  "name": "sanity-example-frontend-next-js",
   "version": "1.0.0",
-  "description": "",
+  "description": "Sanity + Next.js frontend example",
   "main": "index.js",
   "dependencies": {
     "@sanity/client": "^0.120.0",
@@ -17,5 +17,13 @@
   },
   "keywords": [],
   "author": "",
-  "license": "ISC"
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/sanity-io/example-frontend-next-js.git"
+  },
+  "bugs": {
+    "url": "https://github.com/sanity-io/example-frontend-next-js/issues"
+  },
+  "homepage": "https://github.com/sanity-io/example-frontend-next-js#readme"
 }
