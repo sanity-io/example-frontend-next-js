@@ -1,0 +1,21 @@
+{
+  "name": "sanity-example-frontend-next",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "dependencies": {
+    "@sanity/client": "^0.120.0",
+    "next": "^4.1.4",
+    "react": "^16.1.0",
+    "react-dom": "^16.1.0"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "dev": "next",
+    "build": "next build",
+    "start": "next start"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
+}
