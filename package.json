@@ -1,7 +1,8 @@
 {
-  "name": "sanity-example-frontend-next-js",
+  "name": "example-frontend-next-js",
   "version": "1.0.0",
   "description": "Sanity + Next.js frontend example",
+  "private": true,
   "main": "index.js",
   "dependencies": {
     "@sanity/client": "^0.120.0",
