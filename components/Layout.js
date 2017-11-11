@@ -4,7 +4,7 @@ import Head from 'next/head'
 export default props => (
   <div>
     <Head>
-      <meta charset="utf-8" />
+      <meta charSet="utf-8" />
       <title>Sanity + Next.js = 💖</title>
     </Head>
     <Menu />
