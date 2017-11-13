@@ -2,6 +2,7 @@ import Head from 'next/head'
 import Link from 'next/link'
 import globalStyles from './styles/global'
 import styles from './styles/layout'
+import GithubCorner from './GithubCorner'
 
 export default props => (
   <div>
@@ -13,6 +14,7 @@ export default props => (
       <Link href="/movies"><a>Movies</a></Link>
       <Link href="/people"><a>People</a></Link>
     </nav>
+    <GithubCorner />
     <div id="main">
       {props.children}
     </div>
