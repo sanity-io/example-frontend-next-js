@@ -4,7 +4,7 @@ Sanity + Next.js frontend example
 This is an example frontend for the movies database dataset using [Next.js](https://github.com/zeit/next.js/).
 
 ## Prerequisites
-You will need [Node.js](https://nodejs.org) version 6.0 installed on your system
+You will need [Node.js](https://nodejs.org) version 6.0 or greater installed on your system.
 
 ## Setup
 
