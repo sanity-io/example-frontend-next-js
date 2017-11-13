@@ -31,7 +31,7 @@ export default class Person extends React.Component {
       <Layout>
         <div className="person">
           <div className="person__header">
-            {person.imageUrl && <img src={`${person.imageUrl}?h=240`} />}
+            {person.imageUrl && <img src={`${person.imageUrl}?h=480`} />}
             <h2>{person.name}</h2>
           </div>
           <h3>Acted in</h3>

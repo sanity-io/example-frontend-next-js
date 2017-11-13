@@ -36,7 +36,7 @@ export default class Movie extends React.Component {
       <Layout>
         <div className="movie">
           <div className="movie__header">
-            {movie.posterUrl && <img src={`${movie.posterUrl}?h=240`} />}
+            {movie.posterUrl && <img src={`${movie.posterUrl}?h=480`} />}
             {movie.releaseDate.substr(0, 4)}
             <h1>
               {movie.title}
