@@ -2,6 +2,8 @@ import React from 'react'
 import Link from 'next/link'
 import Layout from '../components/Layout'
 import sanity from '../lib/sanity'
+import styles from './styles/movie'
+import listStyles from './styles/list'
 
 const query = `*[_type == "movie" && _id == $id] {
   _id,
@@ -32,24 +34,32 @@ export default class Movie extends React.Component {
     const {movie} = this.props
     return (
       <Layout>
-        <h2>
-          {movie.title} ({movie.releaseDate.substr(0, 4)})
-        </h2>
-        {movie.posterUrl && <img src={`${movie.posterUrl}?h=240`} />}
-        <div>
-          <h3>Cast</h3>
-          <ul>
+        <div className="movie">
+          <div className="movie__header">
+            {movie.posterUrl && <img src={`${movie.posterUrl}?h=240`} />}
+            {movie.releaseDate.substr(0, 4)}
+            <h1>
+              {movie.title}
+            </h1>
+          </div>
+          <h2>Cast</h2>
+          <ul className="list">
             {movie.cast.map(cast => (
               <li key={cast._key}>
-                {cast.person.imageUrl && <img src={`${cast.person.imageUrl}?h=240`} />}
                 <Link href={{pathname: '/person', query: {id: cast.person._id}}}>
-                  <a>{cast.person.name}</a>
+                  <a>
+                    {cast.person.imageUrl && <img src={`${cast.person.imageUrl}?h=240`} />}
+                    <div>
+                      {cast.person.name} as {cast.characterName}
+                    </div>
+                  </a>
                 </Link>
-                {' '} as {cast.characterName}
               </li>
             ))}
           </ul>
         </div>
+        <style jsx>{styles}</style>
+        <style jsx>{listStyles}</style>
       </Layout>
     )
   }

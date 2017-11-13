@@ -2,20 +2,17 @@ import React from 'react'
 import Link from 'next/link'
 import Layout from '../components/Layout'
 import sanity from '../lib/sanity'
+import listStyles from './styles/list'
+import styles from './styles/people'
 
 const query = `*[_type == "person"] {
   _id,
   name,
-  "imageUrl": image.asset->url,
-  "movies": *[_type == "movie" && references(^._id)] {
-    _id,
-    title
-  }
+  "imageUrl": image.asset->url
 }[0...50]
 `
 
 export default class People extends React.Component {
-
   static async getInitialProps() {
     return {
       people: await sanity.fetch(query)
@@ -23,35 +20,23 @@ export default class People extends React.Component {
   }
 
   render() {
-    const {people: people} = this.props
+    const {people} = this.props
     return (
       <Layout>
-        <ul>
+        <ul className="list">
           {people.map(person => (
-            <li key={person._id}>
+            <li key={person._id} className="list__item">
               <Link href={{pathname: '/person', query: {id: person._id}}}>
                 <a>
                   {person.imageUrl && <img src={`${person.imageUrl}?h=240`} />}
-                  <h2>{person.name}</h2>
+                  <h3>{person.name}</h3>
                 </a>
               </Link>
-              <h3>Movies</h3>
-              <ul>
-                {person.movies.map(movie => (
-                  <li key={movie._id}>
-                    <div>
-                      <Link href={{pathname: '/movie', query: {id: movie._id}}}>
-                        <a>
-                          {movie.title}
-                        </a>
-                      </Link>
-                    </div>
-                  </li>
-                ))}
-              </ul>
             </li>
           ))}
         </ul>
+        <style jsx>{styles}</style>
+        <style jsx>{listStyles}</style>
       </Layout>
     )
   }

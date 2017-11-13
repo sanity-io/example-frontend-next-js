@@ -2,6 +2,8 @@ import React from 'react'
 import Link from 'next/link'
 import Layout from '../components/Layout'
 import sanity from '../lib/sanity'
+import listStyles from './styles/list'
+import styles from './styles/person'
 
 const query = `*[_type == "person" && _id == $id] {
   _id,
@@ -27,23 +29,29 @@ export default class Person extends React.Component {
     const {person} = this.props
     return (
       <Layout>
-        {person.imageUrl && <img src={`${person.imageUrl}?h=240`} />}
-        <h2>{person.name}</h2>
-        <div>
+        <div className="person">
+          <div className="person__header">
+            {person.imageUrl && <img src={`${person.imageUrl}?h=240`} />}
+            <h2>{person.name}</h2>
+          </div>
           <h3>Acted in</h3>
-          <ul>
+          <ul className="list">
             {(person.actedIn || []).map(movie => (
               <li key={movie._id}>
-                {movie.posterUrl && <img src={`${movie.posterUrl}?h=240`} />}
                 <Link href={{pathname: '/movie', query: {id: movie._id}}}>
                   <a>
-                    {movie.title} ({movie.releaseDate.substr(0, 4)})
+                    {movie.posterUrl && <img src={`${movie.posterUrl}?h=240`} />}
+                    <div>
+                      {movie.title} ({movie.releaseDate.substr(0, 4)})
+                    </div>
                   </a>
                 </Link>
               </li>
             ))}
           </ul>
         </div>
+        <style jsx>{styles}</style>
+        <style jsx>{listStyles}</style>
       </Layout>
     )
   }
