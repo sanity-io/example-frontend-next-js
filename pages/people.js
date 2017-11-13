@@ -3,7 +3,6 @@ import Link from 'next/link'
 import Layout from '../components/Layout'
 import sanity from '../lib/sanity'
 import listStyles from './styles/list'
-import styles from './styles/people'
 
 const query = `*[_type == "person"] {
   _id,
@@ -35,7 +34,6 @@ export default class People extends React.Component {
             </li>
           ))}
         </ul>
-        <style jsx>{styles}</style>
         <style jsx>{listStyles}</style>
       </Layout>
     )
