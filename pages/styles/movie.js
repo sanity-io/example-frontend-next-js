@@ -15,20 +15,20 @@ export default css`
   object-fit: cover;
 }
 
-.movie__header {
+.header {
   clear: both;
   overflow: hidden;
   padding: 0.5rem;
 }
 
-.movie__header > h1 {
+.header > h1 {
   font-size: 3rem;
   line-height: 1em;
   margin: 1rem 0 0 0;
   padding: 0;
 }
 
-.movie__header > img {
+.header > img {
   display: block;
   width: 33vw;
   max-width: 20rem;
@@ -39,5 +39,36 @@ export default css`
 
 .movie .list {
   line-height: 2rem;
+}
+
+.summaries {
+  clear: both;
+  padding: 2em 0 2em;
+}
+
+.summaries :global(ul) {
+  margin: 0;
+  padding: 0;
+}
+
+.summaries :global(li) {
+  display: block;
+  margin: 0 0 1em;
+  padding: 1em 0 2em;
+}
+
+.summaries :global(li:not(:last-child)) {
+  border-bottom: 1px solid #ccc;
+}
+
+.overview :global(figure) {
+  margin: 0;
+  padding: 0;
+}
+
+.overview :global(img) {
+  display: block;
+  max-width: 100%;
+  box-sizing: border-box;
 }
 `
