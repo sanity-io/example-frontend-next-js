@@ -169,4 +169,35 @@ export default css`
     display: block;
   }
 }
+
+.summaries {
+  clear: both;
+  padding: 2em 0 2em;
+}
+
+.summaries :global(ul) {
+  margin: 0;
+  padding: 0;
+}
+
+.summaries :global(li) {
+  display: block;
+  margin: 0 0 1em;
+  padding: 1em 0 2em;
+}
+
+.summaries :global(li:not(:last-child)) {
+  border-bottom: 1px solid #ccc;
+}
+
+.overview :global(figure) {
+  margin: 0;
+  padding: 0;
+}
+
+.overview :global(img) {
+  display: block;
+  max-width: 100%;
+  box-sizing: border-box;
+}
 `
