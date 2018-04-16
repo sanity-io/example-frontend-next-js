@@ -67,6 +67,7 @@ export default class Movie extends React.Component {
 
   render() {
     const {movie} = this.props
+    console.log('movie', movie)
     return (
       <Layout>
         <div className="movie">
