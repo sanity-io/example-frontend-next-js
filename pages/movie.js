@@ -1,5 +1,6 @@
 import React from 'react'
 import Link from 'next/link'
+import BlockContent from '@sanity/block-content-to-react'
 import Layout from '../components/Layout'
 import sanity from '../lib/sanity'
 import styles from './styles/movie'
@@ -8,6 +9,7 @@ import listStyles from './styles/list'
 const query = `*[_type == "movie" && _id == $id] {
   _id,
   title,
+  overview,
   releaseDate,
   "posterUrl": poster.asset->url,
   "cast": castMembers[] {
@@ -32,6 +34,7 @@ export default class Movie extends React.Component {
 
   render() {
     const {movie} = this.props
+    console.log('movie', movie)
     return (
       <Layout>
         <div className="movie">
@@ -41,6 +44,9 @@ export default class Movie extends React.Component {
             <h1>
               {movie.title}
             </h1>
+            <div className="movie__overview">
+              <BlockContent blocks={movie.overview} />
+            </div>
           </div>
           <h2>Cast</h2>
           <ul className="list">
