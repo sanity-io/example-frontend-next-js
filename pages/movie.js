@@ -43,7 +43,7 @@ const serializers = {
               summaries.map(summary => {
                 return (
                   <li key={summary._key}>
-                    <p>{summary.summary}</p>
+                    <BlockContent blocks={summary.summary} serializers={serializers} />
                     — <a href={summary.url}>{summary.author}</a>
                   </li>
                 )
@@ -67,7 +67,6 @@ export default class Movie extends React.Component {
 
   render() {
     const {movie} = this.props
-    console.log('movie', movie)
     return (
       <Layout>
         <div className="movie">
