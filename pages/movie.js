@@ -43,7 +43,7 @@ const serializers = {
               summaries.map(summary => {
                 return (
                   <li key={summary._key}>
-                    <BlockContent blocks={summary.summary} serializers={serializers} />
+                    <p>{summary.summary}</p>
                     — <a href={summary.url}>{summary.author}</a>
                   </li>
                 )
