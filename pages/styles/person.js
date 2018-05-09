@@ -1,21 +1,17 @@
 import css from 'styled-jsx/css'
 
 export default css`
-.person > h2 {
-  margin: 2rem 0 0 0;
-  padding: 0 0.5rem;
-  border-bottom: 1px solid #ccc;
+.person {
+  margin: 1rem;
+  display: grid;
+  grid-gap: 1rem;
+  grid-template-columns: 1fr 4fr;
 }
 
-.person .list img {
-  width: 2rem;
-  height: 2rem;
-  margin-right: 0.5rem;
-  object-fit: cover;
-}
-
-.person .list {
-  line-height: 2rem;
+.person .title {
+  font-size: 10vw;
+  line-height: 1em;
+  margin: 0;
 }
 
 .person__header {
@@ -33,10 +29,18 @@ export default css`
 
 .person__header > img {
   display: block;
-  width: 33vw;
+  width: 20vw;
   max-width: 20rem;
   height: auto;
   float: left;
   margin-right: 0.5rem;
+}
+
+.link {
+  cursor: pointer;
+}
+
+.person .list {
+  grid-template-columns: repeat(auto-fit, minmax(100px, 180px));
 }
 `
