@@ -200,4 +200,51 @@ export default css`
   max-width: 100%;
   box-sizing: border-box;
 }
+
+@media screen and (max-width: 499px) {
+  .cast-character-name::before {
+    content: ' as ';
+  }
+}
+
+@media screen and (min-width: 500px) {
+  .content {
+    display: grid;
+    grid-gap: 2rem;
+    grid-template-columns: 2fr 5fr;
+    padding: 1rem;
+  }
+
+  .overview :global(p) {
+    margin-top: 0;
+  }
+
+  .cast-list img {
+    margin: 0;
+    margin-right: 0.5em;
+  }
+
+  .cast-list {
+    display: grid;
+    line-height: 1em;
+    grid-gap: 2rem;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  }
+
+  .cast-list-link {
+    border: none;
+    align-items: flex-start;
+  }
+
+  .cast-person-name {
+    display: block;
+    font-size: 1.2em;
+    font-weight: 500;
+    line-height: 1.2em;
+  }
+
+  .cast-list-link span {
+    display: block;
+  }
+}
 `
