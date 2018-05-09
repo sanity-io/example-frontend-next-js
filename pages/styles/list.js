@@ -3,17 +3,17 @@ import css from 'styled-jsx/css'
 
 export default css`
 .list {
-  display: block;
+  display: grid;
   margin: 0;
   padding: 0;
-  clear: both;
+  grid-gap: 1rem;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
 }
 
 .list > li {
   display: block;
   margin: 0;
   padding: 0;
-  border-bottom: 1px solid #ccc;
   display: flex;
   align-items: stretch;
 }
@@ -23,28 +23,26 @@ export default css`
   display: block;
   flex-grow: 1;
   color: #333;
-  padding: 0.5rem;
-}
-
-.list a:hover {
-  background-color: #eee;
-}
-
-.list a:active {
-  color: white;
-  background-color: black;
 }
 
 .list h3 {
   margin: 0;
   padding: 0;
+  line-height: 1em;
 }
 
 .list img {
   display: block;
   height: auto;
-  width: 3em;
+  width: 100%;
   margin-right: 0.5rem;
-  float: left;
+}
+
+.list .noImage {
+  border: 1px solid red;
+}
+
+.link {
+  cursor: pointer;
 }
 `

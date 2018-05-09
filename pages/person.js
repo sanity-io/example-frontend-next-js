@@ -4,16 +4,24 @@ import Layout from '../components/Layout'
 import sanity from '../lib/sanity'
 import listStyles from './styles/list'
 import styles from './styles/person'
+import sanityClient from '../lib/sanity'
+import imageUrlBuilder from '@sanity/image-url'
+
+const imageBuilder = imageUrlBuilder(sanityClient)
+
+function imageUrlFor(source) {
+  return imageBuilder.image(source)
+}
 
 const query = `*[_type == "person" && _id == $id] {
   _id,
   name,
-  "imageUrl": image.asset->url,
-  "actedIn": *[_type == "movie" && references(^._id) && (^._id in castMembers[].person._ref)] {
+  image,
+  "actedIn": *[_type == "movie" && references(^._id)] {
     _id,
     title,
     releaseDate,
-    "posterUrl": poster.asset->url
+    poster
   }
 }[0]
 `
@@ -30,25 +38,27 @@ export default class Person extends React.Component {
     return (
       <Layout>
         <div className="person">
-          <div className="person__header">
-            {person.imageUrl && <img src={`${person.imageUrl}?h=480`} />}
-            <h2>{person.name}</h2>
+          <div>
+            {person.image && <img src={imageUrlFor(person.image).height(500)} />}
           </div>
-          <h3>Acted in</h3>
-          <ul className="list">
-            {(person.actedIn || []).map(movie => (
-              <li key={movie._id}>
-                <Link href={{pathname: '/movie', query: {id: movie._id}}}>
-                  <a>
-                    {movie.posterUrl && <img src={`${movie.posterUrl}?h=240`} />}
-                    <div>
-                      {movie.title} ({movie.releaseDate.substr(0, 4)})
-                    </div>
-                  </a>
-                </Link>
-              </li>
-            ))}
-          </ul>
+          <div>
+            <h1 className="title">{person.name}</h1>
+            <h2>Related movies</h2>
+            <ul className="list">
+              {(person.actedIn || []).map(movie => (
+                <li key={movie._id}>
+                  <Link href={{pathname: '/movie', query: {id: movie._id}}}>
+                    <a className="link">
+                      {movie.poster && <img src={imageUrlFor(movie.poster).ignoreImageParams().height(500)} />}
+                      <span>
+                        {movie.title} ({movie.releaseDate.substr(0, 4)})
+                      </span>
+                    </a>
+                  </Link>
+                </li>
+              ))}
+            </ul>
+          </div>
         </div>
         <style jsx>{styles}</style>
         <style jsx>{listStyles}</style>
