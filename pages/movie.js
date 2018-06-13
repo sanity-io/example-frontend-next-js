@@ -75,6 +75,7 @@ export default class Movie extends React.Component {
 
   render() {
     const {movie} = this.props
+    const {poster: { crop = { left: 0, top: 0 }, hotspot = { x: 0.5, y: 0.5}}} = movie
     return (
       <Layout>
         <div className="movie">
@@ -82,14 +83,14 @@ export default class Movie extends React.Component {
             className="header"
             style={{
               backgroundImage: `url(${imageUrlFor(movie.poster)})`,
-              backgroundPosition: `${(movie.poster.hotspot.x - movie.poster.crop.left) * 100}% ${(movie.poster.hotspot.y - movie.poster.crop.top) * 100}%`
+              backgroundPosition: `${(hotspot.x - crop.left) * 100}% ${(hotspot.y - crop.top) * 100}%`
             }}
           >
             <div className="header-content">
               <h1>{movie.title}</h1>
             </div>
           </div>
-          
+
           <div className="content">
             <div className="sidebar">
               <img
