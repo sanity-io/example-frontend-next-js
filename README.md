@@ -20,6 +20,10 @@ Once downloaded, open the terminal in the project directory, and install depende
 
     > npm install
 
+If you're running your own Sanity project with the movie dataset, remember to enable localhost:3000 in your CORS Origins settings:
+
+    > sanity cors add http://localhost:3000
+
 Then start the example app with
 
     > npm run dev
