@@ -27,11 +27,12 @@ If you're running your own Sanity project with the example movie dataset, go to 
   dataset: 'NAME_OF_YOUR_DATASET',
 ```
 
-You can locate the ID of your project in the header of the [management page for your project](https://manage.sanity.io/)
+You can locate the ID of your project in the header of the [management page for your project](https://manage.sanity.io/).
 
-Also – remember to enable localhost:3000 in your CORS Origins settings, just run this in the folder you set up with `sanity init`:
+You also need to enable `localhost:3000` in your CORS Origins settings! Either through the [management page](https://manage.sanity.io/) under `settings` or by running the below in the project folder you set up with `sanity init`:
 
-    > sanity cors add http://localhost:3000
+  > sanity cors add http://localhost:3000
+
 
 
 Then start the example app with:
