@@ -3,7 +3,7 @@ Sanity + Next.js frontend example
 
 DEMO 👉 https://sanity-example-frontend.now.sh
 
-This is an example [Sanity](https://www.sanity.io/) powered frontend for the movies database dataset using [Next.js](https://github.com/zeit/next.js/).
+This is an example [Sanity](https://www.sanity.io/) powered frontend for the movie dataset using [Next.js](https://github.com/zeit/next.js/).
 
 ## Prerequisites
 You will need [Node.js](https://nodejs.org) version 6.0 or greater installed on your system.
