@@ -31,6 +31,13 @@ export default props => (
       💖
     </footer>
     <style jsx>{styles}</style>
-    <style jsx global>{globalStyles}</style>
+    <style jsx global>{`body {
+      margin: 0;
+      font-family: 'Avenir', Helvetica, Arial, sans-serif;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+      color: #2c3e50;
+      padding: 3.5rem 0 0;
+}`}</style>
   </div>
 )
