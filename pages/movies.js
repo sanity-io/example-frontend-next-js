@@ -22,58 +22,57 @@ const query = `*[_type == "movie"] {
 }[0...50]
 `;
 
-export default class Movies extends React.Component {
-  static async getInitialProps() {
-    return {
-      movies: await sanity.fetch(query)
-    };
-  }
-
-  render() {
-    const { movies } = this.props;
-    return (
-      <Layout>
-        <div className="movies">
-          <ul className="list">
-            {movies.map(movie => (
-              <li key={movie._id} className="list__item">
-                <Link href={{ pathname: "/movie", query: { id: movie._id } }}>
-                  <a>
-                    {movie.poster && (
-                      <img
-                        src={imageUrlFor(movie.poster)
-                          .ignoreImageParams()
-                          .width(300)}
-                        width="100"
-                        height={100 / movie.posterAspect}
-                      />
-                    )}
-                    <div style={{ paddingTop: "0.2em" }}>
-                      {movie.releaseDate.substr(0, 4)}
-                    </div>
-                    <h3>{movie.title}</h3>
-                    {movie.director && (
-                      <span className="movies-list__directed-by">
-                        Directed by {movie.director}
-                      </span>
-                    )}
-                  </a>
-                </Link>
-              </li>
-            ))}
-          </ul>
-        </div>
-        <style jsx>{`
-        .movies {
-          padding: 1rem;
-        }
-        .movies-list__directed-by {
-          display: block;
-          font-size: 1rem;
-        }
-        `}</style>
-        <style jsx>{listStyles}</style>
-      </Layout>
-    );
-  }
+function Movies({ movies }) {
+  return (
+    <Layout>
+      <div className="movies">
+        <ul className="list">
+          {movies.map(movie => (
+            <li key={movie._id} className="list__item">
+              <Link href={{ pathname: "/movie", query: { id: movie._id } }}>
+                <a>
+                  {movie.poster && (
+                    <img
+                      src={imageUrlFor(movie.poster)
+                        .ignoreImageParams()
+                        .width(300)}
+                      width="100"
+                      height={100 / movie.posterAspect}
+                    />
+                  )}
+                  <div style={{ paddingTop: "0.2em" }}>
+                    {movie.releaseDate.substr(0, 4)}
+                  </div>
+                  <h3>{movie.title}</h3>
+                  {movie.director && (
+                    <span className="movies-list__directed-by">
+                      Directed by {movie.director}
+                    </span>
+                  )}
+                </a>
+              </Link>
+            </li>
+          ))}
+        </ul>
+      </div>
+      <style jsx>{`
+      .movies {
+        padding: 1rem;
+      }
+      .movies-list__directed-by {
+        display: block;
+        font-size: 1rem;
+      }
+      `}</style>
+      <style jsx>{listStyles}</style>
+    </Layout>
+  );
 }
+
+Movies.getInitialProps = async () => {
+  return {
+    movies: await sanity.fetch(query)
+  };
+}
+
+export default Movies
