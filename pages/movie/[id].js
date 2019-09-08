@@ -1,10 +1,10 @@
 import React from "react";
 import Link from "next/link";
 import BlockContent from "@sanity/block-content-to-react";
-import Layout from "../components/Layout";
-import sanity from "../lib/sanity";
-import listStyles from "../styles/list";
-import sanityClient from "../lib/sanity";
+import Layout from "../../components/Layout";
+import sanity from "../../lib/sanity";
+import listStyles from "../../styles/list";
+import sanityClient from "../../lib/sanity";
 import imageUrlBuilder from "@sanity/image-url";
 
 const imageBuilder = imageUrlBuilder(sanityClient);
@@ -136,12 +136,7 @@ function Movie({ movie }) {
             <ul className="cast-list">
               {movie.cast.map(cast => (
                 <li key={cast._key} className="cast-list-item">
-                  <Link
-                    href={{
-                      pathname: "/person",
-                      query: { id: cast.person._id }
-                    }}
-                  >
+                  <Link href="/person/[id]" as={`/person/${cast.person_id}`}>
                     <a className="cast-list-link">
                       <span>
                         {cast.person.image && (

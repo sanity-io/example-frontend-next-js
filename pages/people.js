@@ -26,7 +26,7 @@ function People({ people }) {
         <ul className="list">
           {people.map(person => (
             <li key={person._id} className="list__item">
-              <Link href={{ pathname: "/person", query: { id: person._id } }}>
+              <Link href="/person/[id]" as={`/person/${person._id}`}>
                 <a>
                   {person.image && (
                     <img

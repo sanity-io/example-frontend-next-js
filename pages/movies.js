@@ -29,7 +29,7 @@ function Movies({ movies }) {
         <ul className="list">
           {movies.map(movie => (
             <li key={movie._id} className="list__item">
-              <Link href={{ pathname: "/movie", query: { id: movie._id } }}>
+              <Link href="/movie/[id]" as={`/movie/${movie._id}`}>
                 <a>
                   {movie.poster && (
                     <img

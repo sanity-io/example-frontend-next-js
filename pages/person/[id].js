@@ -1,9 +1,9 @@
 import React from "react";
 import Link from "next/link";
-import Layout from "../components/Layout";
-import sanity from "../lib/sanity";
-import listStyles from "../styles/list";
-import sanityClient from "../lib/sanity";
+import Layout from "../../components/Layout";
+import sanity from "../../lib/sanity";
+import listStyles from "../../styles/list";
+import sanityClient from "../../lib/sanity";
 import imageUrlBuilder from "@sanity/image-url";
 
 const imageBuilder = imageUrlBuilder(sanityClient);
@@ -39,7 +39,7 @@ function Person({ person }) {
           <ul className="list">
             {(person.actedIn || []).map(movie => (
               <li key={movie._id}>
-                <Link href={{ pathname: "/movie", query: { id: movie._id } }}>
+                <Link href="/movie/[id]" as={`/movie/${movie._id}`}>
                   <a className="link">
                     {movie.poster && (
                       <img
