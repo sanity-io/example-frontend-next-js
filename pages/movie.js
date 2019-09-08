@@ -349,7 +349,6 @@ export default class Movie extends React.Component {
               />
             </div>
             <div className="main-content">
-              {/* <h2>{movie.releaseDate.substr(0, 4)}</h2> */}
               <div className="overview">
                 <BlockContent
                   blocks={movie.overview}
