@@ -136,7 +136,7 @@ function Movie({ movie }) {
             <ul className="cast-list">
               {movie.cast.map(cast => (
                 <li key={cast._key} className="cast-list-item">
-                  <Link href="/person/[id]" as={`/person/${cast.person_id}`}>
+                  <Link href="/person/[id]" as={`/person/${cast.person._id}`}>
                     <a className="cast-list-link">
                       <span>
                         {cast.person.image && (
