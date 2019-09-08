@@ -3,7 +3,7 @@ import Link from "next/link";
 import BlockContent from "@sanity/block-content-to-react";
 import Layout from "../components/Layout";
 import sanity from "../lib/sanity";
-import styles from "./styles/movie";
+import styles from "../styles/movie";
 import listStyles from "./styles/list";
 import sanityClient from "../lib/sanity";
 import imageUrlBuilder from "@sanity/image-url";

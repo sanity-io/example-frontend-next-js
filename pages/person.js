@@ -2,8 +2,8 @@ import React from "react";
 import Link from "next/link";
 import Layout from "../components/Layout";
 import sanity from "../lib/sanity";
-import listStyles from "./styles/list";
-import styles from "./styles/person";
+import listStyles from "../styles/list";
+import styles from "../styles/person";
 import sanityClient from "../lib/sanity";
 import imageUrlBuilder from "@sanity/image-url";
 
