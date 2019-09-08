@@ -2,7 +2,8 @@ import Head from 'next/head'
 import Link from 'next/link'
 import GithubCorner from './GithubCorner'
 
-export default props => (
+export default function Layout(props) {
+  return (
   <div>
     <Head>
       <meta charSet="utf-8" />
@@ -73,3 +74,4 @@ export default props => (
     `}</style>
   </div>
 )
+  }
