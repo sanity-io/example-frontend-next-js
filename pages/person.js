@@ -106,9 +106,9 @@ function Person({ person }) {
     </Layout>
 }
 
-Person.getInitialProps = async (req) => {
+Person.getInitialProps = async (ctx) => {
   return {
-    person: await sanity.fetch(query, { id: req.query.id })
+    person: await sanity.fetch(query, { id: ctx.query.id })
   };
 }
 

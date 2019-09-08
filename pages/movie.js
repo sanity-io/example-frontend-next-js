@@ -376,9 +376,9 @@ function Movie({ movie }) {
     </Layout>
 }
 
-Movie.getInitialProps = (req) => {
+Movie.getInitialProps = async (ctx) => {
   return {
-    movie: await sanity.fetch(query, { id: req.query.id })
+    movie: await sanity.fetch(query, { id: ctx.query.id })
   };
 }
 
