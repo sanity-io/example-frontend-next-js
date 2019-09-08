@@ -2,7 +2,6 @@ import React from "react";
 import Link from "next/link";
 import Layout from "../components/Layout";
 import sanity from "../lib/sanity";
-import styles from "../styles/movies";
 import listStyles from "../styles/list";
 import sanityClient from "../lib/sanity";
 import imageUrlBuilder from "@sanity/image-url";
@@ -64,7 +63,15 @@ export default class Movies extends React.Component {
             ))}
           </ul>
         </div>
-        <style jsx>{styles}</style>
+        <style jsx>{`
+        .movies {
+          padding: 1rem;
+        }
+        .movies-list__directed-by {
+          display: block;
+          font-size: 1rem;
+        }
+        `}</style>
         <style jsx>{listStyles}</style>
       </Layout>
     );

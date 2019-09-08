@@ -2,7 +2,6 @@ import React from "react";
 import Link from "next/link";
 import Layout from "../components/Layout";
 import sanity from "../lib/sanity";
-import styles from "../styles/people";
 import listStyles from "../styles/list";
 import imageUrlBuilder from "@sanity/image-url";
 import sanityClient from "../lib/sanity";
@@ -51,7 +50,16 @@ export default class People extends React.Component {
             ))}
           </ul>
         </div>
-        <style jsx>{styles}</style>
+        <style jsx>{`
+        .people {
+          padding: 1rem;
+        }
+        
+        .people .list h3 {
+          line-height: 1em;
+          padding: 0.5em 0;
+        }
+        `}</style>
         <style jsx>{listStyles}</style>
       </Layout>
     );
