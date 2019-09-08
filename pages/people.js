@@ -43,14 +43,14 @@ function People({ people }) {
         </ul>
       </div>
       <style jsx>{`
-      .people {
-        padding: 1rem;
-      }
-      
-      .people .list h3 {
-        line-height: 1em;
-        padding: 0.5em 0;
-      }
+        .people {
+          padding: 1rem;
+        }
+
+        .people .list h3 {
+          line-height: 1em;
+          padding: 0.5em 0;
+        }
       `}</style>
       <style jsx>{listStyles}</style>
     </Layout>
@@ -61,6 +61,6 @@ People.getInitialProps = async () => {
   return {
     people: await sanity.fetch(query)
   };
-}
+};
 
-export default People
+export default People;

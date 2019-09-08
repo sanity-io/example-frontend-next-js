@@ -1,11 +1,11 @@
-Sanity + Next.js frontend example
-===
+# Sanity + Next.js frontend example
 
 DEMO 👉 https://sanity-example-frontend.now.sh
 
 This is an example [Sanity](https://www.sanity.io/) powered frontend for the movie dataset using [Next.js](https://github.com/zeit/next.js/).
 
 ## Prerequisites
+
 You will need [Node.js](https://nodejs.org) version 6.0 or greater installed on your system.
 
 ## Setup
@@ -31,9 +31,7 @@ You can locate the ID of your project in the header of the [management page for 
 
 You also need to enable `localhost:3000` in your CORS Origins settings! Either through the [management page](https://manage.sanity.io/) under `settings` or by running the below in the project folder you set up with `sanity init`:
 
-  > sanity cors add http://localhost:3000
-
-
+> sanity cors add http://localhost:3000
 
 Then start the example app with:
 

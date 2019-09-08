@@ -56,13 +56,13 @@ function Movies({ movies }) {
         </ul>
       </div>
       <style jsx>{`
-      .movies {
-        padding: 1rem;
-      }
-      .movies-list__directed-by {
-        display: block;
-        font-size: 1rem;
-      }
+        .movies {
+          padding: 1rem;
+        }
+        .movies-list__directed-by {
+          display: block;
+          font-size: 1rem;
+        }
       `}</style>
       <style jsx>{listStyles}</style>
     </Layout>
@@ -73,6 +73,6 @@ Movies.getInitialProps = async () => {
   return {
     movies: await sanity.fetch(query)
   };
-}
+};
 
-export default Movies
+export default Movies;
