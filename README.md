@@ -6,7 +6,7 @@ This is an example [Sanity](https://www.sanity.io/) powered frontend for the mov
 
 ## Prerequisites
 
-You will need [Node.js](https://nodejs.org) version 6.0 or greater installed on your system.
+You will need [Node.js](https://nodejs.org) version 8.0 or greater installed on your system.
 
 ## Setup
 
