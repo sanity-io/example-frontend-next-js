@@ -3,13 +3,7 @@ import Link from "next/link";
 import Layout from "../components/Layout";
 import sanity from "../lib/sanity";
 import listStyles from "../styles/list";
-import imageUrlBuilder from "@sanity/image-url";
-import sanityClient from "../lib/sanity";
-const imageBuilder = imageUrlBuilder(sanityClient);
-
-function imageUrlFor(source) {
-  return imageBuilder.image(source);
-}
+import imageUrlFor from "../utils/imageUrlFor";
 
 const query = `*[_type == "person"] {
   _id,
@@ -19,7 +13,7 @@ const query = `*[_type == "person"] {
 }[0...50]
 `;
 
-function People({ people }) {
+const People = ({ people }) => {
   return (
     <Layout>
       <div className="people">
@@ -55,12 +49,13 @@ function People({ people }) {
       <style jsx>{listStyles}</style>
     </Layout>
   );
-}
-
-People.getInitialProps = async () => {
-  return {
-    people: await sanity.fetch(query)
-  };
 };
+
+export const getStaticProps = async () => {
+  const people = await sanity.fetch(query);
+  return {
+    props: { people } // will be passed to the page component as props
+  };
+}
 
 export default People;
