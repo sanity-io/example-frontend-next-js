@@ -11,7 +11,7 @@ export default function Layout(props) {
         <title>Sanity + Next.js = 💖</title>
       </Head>
       <nav>
-        <Link href="/movies">
+        <Link href="/">
           <a>Movies</a>
         </Link>
         <Link href="/people">
@@ -22,13 +22,13 @@ export default function Layout(props) {
       <div id="main">{props.children}</div>
       <footer>
         <a href="http://sanity.io">
-          <img src="https://rawgit.com/sanity-io/example-frontend-next-js/master/static/sanity-logo.svg" />
+          <img src="/sanity-logo.svg" alt="Sanity Logo" />
         </a>
         +
-        <a href="https://github.com/zeit/next.js">
+        <a href="https://github.com/zeit/next.js" alt="NextJs Logo" >
           <img
             className="next"
-            src="https://cloud.githubusercontent.com/assets/13041/19686250/971bf7f8-9ac0-11e6-975c-188defd82df1.png"
+            src="/nextjs-logo.svg"
           />
         </a>
         = 💖
