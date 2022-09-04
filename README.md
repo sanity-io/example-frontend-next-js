@@ -1,3 +1,5 @@
+[![Gitpod ready-to-code](https://img.shields.io/badge/Gitpod-ready--to--code-blue?logo=gitpod)](https://gitpod.io/#https://github.com/sanity-io/example-frontend-next-js)
+
 # Sanity + Next.js frontend example
 
 DEMO 👉 https://example-frontend-next-js.sanity-io.now.sh
