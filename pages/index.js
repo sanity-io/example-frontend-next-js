@@ -22,7 +22,7 @@ const Movies = ({ movies }) => {
         <ul className="list">
           {movies.map(movie => (
             <li key={movie._id} className="list__item">
-              <Link href="/movie/[id]" as={`/movie/${movie._id}`}>
+              <Link href="/movie/[id]" as={`/movie/${movie._id}`} legacyBehavior>
                 <a>
                   {movie.poster && (
                     <img

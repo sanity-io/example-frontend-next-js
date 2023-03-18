@@ -20,7 +20,7 @@ const People = ({ people }) => {
         <ul className="list">
           {people.map(person => (
             <li key={person._id} className="list__item">
-              <Link href="/person/[id]" as={`/person/${person._id}`}>
+              <Link href="/person/[id]" as={`/person/${person._id}`} legacyBehavior>
                 <a>
                   {person.image && (
                     <img

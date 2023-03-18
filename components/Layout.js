@@ -11,10 +11,10 @@ export default function Layout(props) {
         <title>Sanity + Next.js = 💖</title>
       </Head>
       <nav>
-        <Link href="/">
+        <Link href="/" legacyBehavior>
           <a>Movies</a>
         </Link>
-        <Link href="/people">
+        <Link href="/people" legacyBehavior>
           <a>People</a>
         </Link>
       </nav>
