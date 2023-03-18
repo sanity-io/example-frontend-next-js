@@ -132,7 +132,7 @@ const Movie = ({ movie }) => {
             <ul className="cast-list">
               {movie.cast.map(cast => (
                 <li key={cast._key} className="cast-list-item">
-                  <Link href="/person/[id]" as={`/person/${cast.person._id}`}>
+                  <Link href="/person/[id]" as={`/person/${cast.person._id}`} legacyBehavior>
                     <a className="cast-list-link">
                       <span>
                         {cast.person.image && (
